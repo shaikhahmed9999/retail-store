@@ -1,4 +1,4 @@
-**Problem Statement**
+# **Problem Statement**
 
 - On a retail website, the following discounts apply:
 1. If the user is an employee of the store, he gets a 30% discount
@@ -13,7 +13,7 @@ get $ 45 as a discount).
 the net payable amount. Please note the stress is on object oriented approach and test
 coverage. User interface is not required. What we care about:
 
-**Required Activities**
+# **Required Activities**
 - Object oriented programming approach, provide a high level UML class diagram of all the key classes in your solution. This can either be on paper
 or using a CASE tool
 - Unit tests to achieve good code coverage, good use of Mocking
@@ -22,16 +22,16 @@ or using a CASE tool
 - Clear README.md that explains how the code and the test can be run and how the coverage reports can be generated
 
 
-**UML Class Diagram:**
+# **UML Class Diagram:**
 
 ![Alt Text](https://raw.githubusercontent.com/shaikhahmed9999/retail-store/main/ReportsAndUML/UML.png)
 The UML class diagram for the key classes in the solution can be found in the uml directory.
 
-**Sonar Report:**
+# **Sonar Report:**
 ![Alt Text](https://raw.githubusercontent.com/shaikhahmed9999/retail-store/main/ReportsAndUML/Reports.png);
 
 
-**Structure Overview:**
+# **Structure Overview:**
 
 - **Controller:** Contains the main logic for handling requests.
 - **Service:** Contains business logic for applying discounts and calculating the net payable amount.
@@ -40,7 +40,7 @@ The UML class diagram for the key classes in the solution can be found in the um
 - **Exception:** Contains custom exception classes.
 - **Util:** Contains utility classes.
 
-**Key Classes:**
+# **Key Classes:**
 
 - **UserController:** Handles incoming requests related to user data and bill processing.
 - **UserService:** Provides methods for applying discounts and calculating the net payable amount.
@@ -54,7 +54,7 @@ The UML class diagram for the key classes in the solution can be found in the um
 
 
 
-**Project Spec:**
+# **Project Spec:**
 
 **Project Information:**
 
@@ -79,18 +79,18 @@ The UML class diagram for the key classes in the solution can be found in the um
 - Spring Boot Maven Plugin
 - Sonar Maven Plugin
 
-**HalBrowser**
+# **HalBrowser**
 ![Alt Text](https://raw.githubusercontent.com/shaikhahmed9999/retail-store/main/ReportsAndUML/HAL.png)
 The UML class diagram for the key classes in the solution can be found in the uml directory.
 
 
-**API Types**
+# **API Types**
 
 - UserDetails
 - Items
 - Checkout
 
-**User Details**
+### **User Details**
 
 **Get**
 ```bash
@@ -146,7 +146,7 @@ DELETE /userDetails/{id} HTTP/1.1
 Host: example.com
 ```
 
-**Items**
+### **Items**
 
 
 **Get**
@@ -220,7 +220,7 @@ DELETE /items/{id} HTTP/1.1
 Host: example.com
 ```
 
-**Checkout** 
+### **Checkout** 
 **Get**
 ```bash
 GET /checkout/bill HTTP/1.1
@@ -260,7 +260,19 @@ responce
 
 ```
 
-**Service Setup**.
+# **Service Setup**.
+
+**User Constants**
+- EMPLOYEE
+- AFFILIATE
+- CUSTOMER
+  
+**Industry Constants**
+- GROCERY
+- ELECTRONICS
+- CLOTHING
+- STATIONERY
+- COSMETICS
 
 **PreSteps**
 
@@ -333,10 +345,9 @@ Payload:
 }
 ```
 
+# **Project Setup**
 
-**Project Setup**
-
-**Git Repository**
+### **Git Repository**
 
 **Git Clone**
 
@@ -346,7 +357,7 @@ To clone this repository to your local machine, you can use the following comman
 git clone https://github.com/shaikhahmed9999/retail-store.git
 ```
 
-**JAR File Creation:**
+### **JAR File Creation:**
 
 **Build Your Project:**
 - Use your build tool (e.g., Maven, Gradle) to build your project. If you're using Maven, you can use:
@@ -366,7 +377,7 @@ mvn clean package
 java -jar retail-0.0.1-SNAPSHOT.jar
 ```
 
-**Docker** 
+### **Docker** 
 
 **Build Docker Image:**
 - Build your Docker image using the Dockerfile:
