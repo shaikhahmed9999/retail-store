@@ -8,17 +8,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class OrderRequestValidator {
-	
-	private OrderRequestValidator() {
-        throw new AssertionError();
-    }
 
-    public static void validateOrderRequest(OrderRequestRQO orderRequest) {
-        Set<Long> itemIds = new HashSet<>();
-        for (OrderItemsRQO item : orderRequest.getItems()) {
-            if (!itemIds.add(item.getItemId())) {
-                throw new DuplicateItemException("Duplicate itemId found: " + item.getItemId());
-            }
-        }
-    }
+	private OrderRequestValidator() {
+		throw new AssertionError();
+	}
+
+	public static void validateOrderRequest(OrderRequestRQO orderRequest) {
+		Set<Long> itemIds = new HashSet<>();
+		for (OrderItemsRQO item : orderRequest.getItems()) {
+			if (!itemIds.add(item.getItemId())) {
+				throw new DuplicateItemException("Duplicate itemId found: " + item.getItemId());
+			}
+		}
+	}
 }

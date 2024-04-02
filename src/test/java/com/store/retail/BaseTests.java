@@ -21,13 +21,13 @@ import com.store.retail.modals.UserDetail;
 import com.store.retail.request.OrderItemsRQO;
 import com.store.retail.request.OrderRequestRQO;
 import com.store.retail.responce.InvoiceRPO;
-import com.store.retail.services.DiscountCalculator;
-import com.store.retail.services.InvoiceGenerator;
+import com.store.retail.services.DiscountCalculatorService;
+import com.store.retail.services.InvoiceGeneratorService;
 import com.store.retail.services.ItemService;
 import com.store.retail.services.UserService;
 
 /**
- * This class is used for Test Billing Service
+ * This class is used for Base Test class.
  * 
  * @author M Ahmed Shaikh
  *
@@ -37,7 +37,7 @@ import com.store.retail.services.UserService;
 class BaseTests {
 
 	@InjectMocks
-	private InvoiceGenerator invoiceGenerator;
+	private InvoiceGeneratorService invoiceGenerator;
 
 	@BeforeEach
 	void setUp() {
@@ -51,16 +51,17 @@ class BaseTests {
 		when(userService.getUserDetailById(1L)).thenReturn(user);
 
 		ItemService itemService = mock(ItemService.class);
-		Item item = new Item("Item 1", "Item 1", 100.0, Industry.ELECTRONICS, true, LocalDateTime.now(),
+		Item item = new Item(1, "Item 1", "Item 1", 100.0, Industry.ELECTRONICS, true, LocalDateTime.now(),
 				LocalDateTime.now());
 		when(itemService.getItemById(1L)).thenReturn(item);
 
-		DiscountCalculator discountCalculator = mock(DiscountCalculator.class);
+		DiscountCalculatorService discountCalculator = mock(DiscountCalculatorService.class);
 		when(discountCalculator.calculateUserDiscountPercentage(UserTypes.EMPLOYEE, user.getCreatedDate()))
 				.thenReturn(0.3);
 		when(discountCalculator.calculateItemDiscount(item, 1, 0.3)).thenReturn(70.0);
 
-		InvoiceGenerator invoiceGenerator = new InvoiceGenerator(discountCalculator, userService, itemService);
+		InvoiceGeneratorService invoiceGenerator = new InvoiceGeneratorService(discountCalculator, userService,
+				itemService);
 		OrderRequestRQO orderRequest = new OrderRequestRQO();
 		orderRequest.setUserId(1L);
 		orderRequest.setItems(List.of(new OrderItemsRQO(1L, 1, 1)));
@@ -77,16 +78,17 @@ class BaseTests {
 		when(userService.getUserDetailById(1L)).thenReturn(user);
 
 		ItemService itemService = mock(ItemService.class);
-		Item item = new Item("Item 1", "Item 1", 50.0, Industry.ELECTRONICS, true, LocalDateTime.now(),
+		Item item = new Item(1, "Item 1", "Item 1", 50.0, Industry.ELECTRONICS, true, LocalDateTime.now(),
 				LocalDateTime.now());
 		when(itemService.getItemById(1L)).thenReturn(item);
 
-		DiscountCalculator discountCalculator = mock(DiscountCalculator.class);
+		DiscountCalculatorService discountCalculator = mock(DiscountCalculatorService.class);
 		when(discountCalculator.calculateUserDiscountPercentage(UserTypes.AFFILIATE, user.getCreatedDate()))
 				.thenReturn(0.1);
 		when(discountCalculator.calculateItemDiscount(item, 1, 0.1)).thenReturn(45.0);
 
-		InvoiceGenerator invoiceGenerator = new InvoiceGenerator(discountCalculator, userService, itemService);
+		InvoiceGeneratorService invoiceGenerator = new InvoiceGeneratorService(discountCalculator, userService,
+				itemService);
 		OrderRequestRQO orderRequest = new OrderRequestRQO();
 		orderRequest.setUserId(1L);
 		orderRequest.setItems(List.of(new OrderItemsRQO(1L, 1, 1)));
@@ -103,16 +105,17 @@ class BaseTests {
 		when(userService.getUserDetailById(1L)).thenReturn(user);
 
 		ItemService itemService = mock(ItemService.class);
-		Item item = new Item("Item 1", "Item 1", 50.0, Industry.ELECTRONICS, true, LocalDateTime.now(),
+		Item item = new Item(1, "Item 1", "Item 1", 50.0, Industry.ELECTRONICS, true, LocalDateTime.now(),
 				LocalDateTime.now());
 		when(itemService.getItemById(1L)).thenReturn(item);
 
-		DiscountCalculator discountCalculator = mock(DiscountCalculator.class);
+		DiscountCalculatorService discountCalculator = mock(DiscountCalculatorService.class);
 		when(discountCalculator.calculateUserDiscountPercentage(UserTypes.CUSTOMER, user.getCreatedDate()))
 				.thenReturn(0.05);
 		when(discountCalculator.calculateItemDiscount(item, 1, 0.05)).thenReturn(47.5);
 
-		InvoiceGenerator invoiceGenerator = new InvoiceGenerator(discountCalculator, userService, itemService);
+		InvoiceGeneratorService invoiceGenerator = new InvoiceGeneratorService(discountCalculator, userService,
+				itemService);
 		OrderRequestRQO orderRequest = new OrderRequestRQO();
 		orderRequest.setUserId(1L);
 		orderRequest.setItems(List.of(new OrderItemsRQO(1L, 1, 1)));
@@ -130,16 +133,17 @@ class BaseTests {
 		when(userService.getUserDetailById(1L)).thenReturn(user);
 
 		ItemService itemService = mock(ItemService.class);
-		Item item = new Item("Item 1", "Item 1", 200.0, Industry.ELECTRONICS, true, LocalDateTime.now(),
+		Item item = new Item(1, "Item 1", "Item 1", 200.0, Industry.ELECTRONICS, true, LocalDateTime.now(),
 				LocalDateTime.now());
 		when(itemService.getItemById(1L)).thenReturn(item);
 
-		DiscountCalculator discountCalculator = mock(DiscountCalculator.class);
+		DiscountCalculatorService discountCalculator = mock(DiscountCalculatorService.class);
 		when(discountCalculator.calculateUserDiscountPercentage(UserTypes.CUSTOMER, user.getCreatedDate()))
 				.thenReturn(0.05);
 		when(discountCalculator.calculateItemDiscount(item, 1, 0.05)).thenReturn(180.0);
 
-		InvoiceGenerator invoiceGenerator = new InvoiceGenerator(discountCalculator, userService, itemService);
+		InvoiceGeneratorService invoiceGenerator = new InvoiceGeneratorService(discountCalculator, userService,
+				itemService);
 		OrderRequestRQO orderRequest = new OrderRequestRQO();
 		orderRequest.setUserId(1L);
 		orderRequest.setItems(List.of(new OrderItemsRQO(1L, 1, 1)));
@@ -157,16 +161,17 @@ class BaseTests {
 		when(userService.getUserDetailById(1L)).thenReturn(user);
 
 		ItemService itemService = mock(ItemService.class);
-		Item item = new Item("Item 1", "Item 1", 100.0, Industry.GROCERY, true, LocalDateTime.now(),
+		Item item = new Item(1, "Item 1", "Item 1", 100.0, Industry.GROCERY, true, LocalDateTime.now(),
 				LocalDateTime.now());
 		when(itemService.getItemById(1L)).thenReturn(item);
 
-		DiscountCalculator discountCalculator = mock(DiscountCalculator.class);
+		DiscountCalculatorService discountCalculator = mock(DiscountCalculatorService.class);
 		when(discountCalculator.calculateUserDiscountPercentage(UserTypes.CUSTOMER, user.getCreatedDate()))
 				.thenReturn(0.05);
 		when(discountCalculator.calculateItemDiscount(item, 1, 0.05)).thenReturn(100.0);
 
-		InvoiceGenerator invoiceGenerator = new InvoiceGenerator(discountCalculator, userService, itemService);
+		InvoiceGeneratorService invoiceGenerator = new InvoiceGeneratorService(discountCalculator, userService,
+				itemService);
 		OrderRequestRQO orderRequest = new OrderRequestRQO();
 		orderRequest.setUserId(1L);
 		orderRequest.setItems(List.of(new OrderItemsRQO(1L, 1, 1)));

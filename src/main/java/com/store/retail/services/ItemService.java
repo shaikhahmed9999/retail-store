@@ -9,7 +9,7 @@ import com.store.retail.repositories.ItemRepository;
 public class ItemService {
 
 	private ItemRepository itemRepository;
-	
+
 	public ItemService(ItemRepository itemRepository) {
 		this.itemRepository = itemRepository;
 	}
@@ -18,5 +18,5 @@ public class ItemService {
 	public Item getItemById(long id) {
 		return itemRepository.getById(id);
 	}
-	
+
 }
