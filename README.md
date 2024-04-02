@@ -58,7 +58,7 @@ This report show all sonar related issues are resolved.
 - **Exception:** Contains custom exception classes.
 - **Constant:** All application constants variables.
 - **Validation:** user input custom validation.
-- **ResponceObject:** All API application have responceObjects for custom responce mapping.
+- **responseObject:** All API application have responseObjects for custom response mapping.
 - **RequestObject:** All API application have requestObjects for custom request mapping.
 
 # **Key Classes:**
@@ -120,7 +120,7 @@ GET /userDetails HTTP/1.1
 Host: example.com
 Content-Type: application/json
 
-responce:
+response:
 {
     "userName": "King",
     "userType": "AFFILIATE",
@@ -264,7 +264,7 @@ Payload:
 ]
 }
 
-responce
+response
 {
     "invoiceNo": 12,
     "customerName": "King",
@@ -349,7 +349,7 @@ Payload:
 ]
 }
 ```
-**responce**
+**response**
 ```bash
 {
     "invoiceNo": 12,
