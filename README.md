@@ -27,9 +27,24 @@ or using a CASE tool
 ![Alt Text](https://raw.githubusercontent.com/shaikhahmed9999/retail-store/main/ReportsAndUML/UML.png)
 The UML class diagram for the key classes in the solution can be found in the uml directory.
 
+# **Test Cases:**    
+#### TestFrameWork
+- Implement mock based testing by using mockito.
+
+Write all mentioned point testcases and coverage all provided cases;
+- If the user is an employee of the store, he gets a 30% discount
+- If the user is an affiliate of the store, he gets a 10% discount
+- If the user has been a customer for over 2 years, he gets a 5% discount.
+- For every $100 on the bill, there would be a $ 5 discount (e.g. for $ 990, you get $ 45 as a discount).
+- The percentage based discounts do not apply on groceries.
+- A user can get only one of the percentage based discounts on a bill.
+
+
+
+
 # **Sonar Report:**
 ![Alt Text](https://raw.githubusercontent.com/shaikhahmed9999/retail-store/main/ReportsAndUML/Reports.png);
-
+This report show all sonar related issues are resolved.
 
 # **Structure Overview:**
 
@@ -38,19 +53,24 @@ The UML class diagram for the key classes in the solution can be found in the um
 - **Model:** Contains the data models used by the application.
 - **Repository:** Contains interfaces for accessing data.
 - **Exception:** Contains custom exception classes.
-- **Util:** Contains utility classes.
+- **Constant:** All application constants variables.
+- **Validation:** user input custom validation.
+- **ResponceObject:** All API application have responceObjects for custom responce mapping.
+- **RequestObject:** All API application have requestObjects for custom request mapping.
 
 # **Key Classes:**
 
-- **UserController:** Handles incoming requests related to user data and bill processing.
-- **UserService:** Provides methods for applying discounts and calculating the net payable amount.
+- **BillingController:** Handles incoming requests related to user data and bill processing.
+- **ItemController:** Handles incoming requests related to item data and crud processing.
+- **UserController:** Handles incoming requests related to user data and crud processing.
+- **UserService:** Provides methods for get data from repository for user implementation.
+- **ItemService:** Provides methods for get data from repository for item implementation.
 - **User:** Represents user data including user type, tenure, and bill information.
 - **Bill:** Represents bill information including total amount and list of items.
 - **DiscountService:** Contains methods for applying various types of discounts.
-- **DiscountStrategy:** Interface defining methods for applying discounts.
-- **EmployeeDiscountStrategy, AffiliateDiscountStrategy, TenureDiscountStrategy, BillDiscountStrategy:** Implementations of DiscountStrategy interface for different types of discounts.
-
-- **GroceryItem:** Represents grocery item information.
+- **InvoiceService:** Contains methods for generate invoice with discount.
+- **UserRepository** for maintain crud operations.
+- **ItemRepository** for maintain crud operations.
 
 
 
@@ -81,8 +101,7 @@ The UML class diagram for the key classes in the solution can be found in the um
 
 # **HalBrowser**
 ![Alt Text](https://raw.githubusercontent.com/shaikhahmed9999/retail-store/main/ReportsAndUML/HAL.png)
-The UML class diagram for the key classes in the solution can be found in the uml directory.
-
+Hal browser provide all information related to API and also provide basic controller endpoints.
 
 # **API Types**
 
