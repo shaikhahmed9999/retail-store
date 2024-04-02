@@ -29,7 +29,10 @@ The UML class diagram for the key classes in the solution can be found in the um
 
 # **Test Cases:**    
 #### TestFrameWork
-- Implement mock based testing by using mockito.
+
+Implement mock based testing by using mockito.
+
+![Alt Text](https://github.com/shaikhahmed9999/retail-store/blob/main/ReportsAndUML/testReports.png)
 
 Write all mentioned point testcases and coverage all provided cases;
 - If the user is an employee of the store, he gets a 30% discount
