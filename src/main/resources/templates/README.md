@@ -355,4 +355,3 @@ docker run -d -p 8080:8080 retail-0.0.1-SNAPSHOT
 
 **Access Your Application:**
 - Your application should now be accessible at http://localhost:8080 assuming your application runs on port 8080.
-
